@@ -1,0 +1,157 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  /* ================================
+     DARK OBSIDIAN / CHARCOAL BASE (Yellow & Black)
+     ================================ */
+  --color-slate-950: #E97451; /* Deep obsidian black */
+  --color-slate-900: #0a0a08; /* Matte charcoal black */
+  --color-slate-850: #E97451; /* Card background */
+  --color-slate-800: #E97451; /* Borders and dividers */
+  --color-slate-700: #292923; /* Element borders */
+  --color-slate-600: #3f3f36; /* Muted text / icons */
+  --color-slate-500: #6e6e60; /* Subtle text */
+  --color-slate-400: #9d9d8f; /* Secondary text */
+  --color-slate-300: #c9c9bd; /* Secondary text bright */
+  --color-slate-200: #ebebe5; /* Bright text */
+  --color-slate-100: #f4f4f0; /* Highlight text */
+  --color-slate-50: #fafaf9; /* White */
+
+  /* ================================
+     YELLOW / GOLD ACCENT (Vibrant Cyber-Gold)
+     ================================ */
+  --color-accent-50: #fefce8;
+  --color-accent-100: #fef9c3;
+  --color-accent-200: #fef08a;
+  --color-accent-300: #fde047;
+  --color-accent-400: #facc15;
+  --color-accent-500: #eab308;
+  --color-accent-600: #ca8a04;
+  --color-accent-700: #a16207;
+  --color-accent-800: #854d0e;
+  --color-accent-900: #713f12;
+  --color-accent-950: #422006;
+
+  /* ================================
+     MAPPING SKY TO ACCENT (YELLOW)
+     Automatically maps all sky utilities (e.g. text-sky-400) to our golden accent.
+     ================================ */
+  --color-sky-50: var(--color-accent-50);
+  --color-sky-100: var(--color-accent-100);
+  --color-sky-200: var(--color-accent-200);
+  --color-sky-300: var(--color-accent-300);
+  --color-sky-400: var(--color-accent-400);
+  --color-sky-500: var(--color-accent-500);
+  --color-sky-600: var(--color-accent-600);
+  --color-sky-700: var(--color-accent-700);
+  --color-sky-800: var(--color-accent-800);
+  --color-sky-900: var(--color-accent-900);
+  --color-sky-950: var(--color-accent-950);
+
+  /* ================================
+     STATUS COLORS
+     ================================ */
+  --color-success: #a3e635; /* vibrant lime green */
+  --color-warning: #eab308; /* yellow/amber */
+  --color-danger: #ef4444;  /* red */
+  --color-danger-light: #f87171;
+  --color-danger-dark: #b91c1c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+
+  /* Obsidian black background with gold ambient glows */
+  background:
+    radial-gradient(
+      circle at 10% 15%,
+      rgba(234, 179, 8, 0.05),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 90% 85%,
+      rgba(234, 179, 8, 0.03),
+      transparent 40%
+    ),
+    var(--color-slate-950);
+
+  color: var(--color-slate-200);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ================================
+   SCROLLBAR
+   ================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-slate-900);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--color-accent-400),
+    var(--color-accent-600)
+  );
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-300);
+}
+
+/* ================================
+   SELECTION
+   ================================ */
+
+::selection {
+  background: var(--color-accent-500);
+  color: #040402;
+}
+
+/* ================================
+   OPTIONAL GLOW UTILITIES
+   ================================ */
+
+.glow-yellow {
+  box-shadow:
+    0 0 12px rgba(234, 179, 8, 0.3),
+    0 0 35px rgba(234, 179, 8, 0.1);
+}
+
+.glow-amber {
+  box-shadow:
+    0 0 12px rgba(217, 119, 6, 0.3),
+    0 0 35px rgba(217, 119, 6, 0.1);
+}
+
+.text-gradient {
+  background: linear-gradient(
+    90deg,
+    #fef08a,
+    #facc15,
+    #ca8a04
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
